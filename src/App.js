@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Projects from './Projects';
 
 class App extends Component {
     // set up state here because property initializers are a way to atach properties and methods to this object WITHOUT having to use a constructor!!!
@@ -40,8 +41,9 @@ class App extends Component {
                             <button onClick={this.toggleDisplayBio}>Read More</button>
                         </div>
                     )
-
                 }
+                <hr />
+                <Projects />
             </div>
         )
     }
