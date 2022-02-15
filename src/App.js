@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = { displayBio: false };
+    // set up state here because property initializers are a way to atach properties and methods to this object WITHOUT having to use a constructor!!!
+    state = { displayBio: false };
 
-        console.log('Component this', this);
+    // We do not need a constructor anymore because we used a property initializer!
 
-        this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
-    }
+    // constructor() {
+    //     super();
+    //     this.state = { displayBio: false };
 
-    toggleDisplayBio() {
+    //     console.log('Component this', this);
+
+    // Don't need to bind anymore because we used a property initializer!!!
+
+    //     this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
+    // }
+
+    toggleDisplayBio = () => {
         this.setState({ displayBio: !this.state.displayBio });
     }
 
