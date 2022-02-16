@@ -31,6 +31,7 @@ class App extends Component {
                 <img src={profile} alt='profile' className='profile' />
                 <h1>Heyyyy there!!!</h1>
                 <p>My name is Amelia</p>
+                {/* the title will be displayed OR NOT depending on the displayBio*/}
                 <Title />
                 <p>Feel free to contact me if you have any wild or funny stories at work to share!</p>
                 {
