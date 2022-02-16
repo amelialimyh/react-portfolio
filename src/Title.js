@@ -17,6 +17,12 @@ class Title extends Component {
         this.animateTitles();
     }
 
+    componentWillUnmount() {
+        console.log('Title component will unmount');
+
+        clearInterval(this.titleInterval);
+    }
+
     animateTitles = () => {
         setInterval(() => {
             // need a % operator to loop back around to the index once the limit is reached
