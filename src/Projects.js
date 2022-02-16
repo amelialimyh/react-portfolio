@@ -8,7 +8,7 @@ class Project extends Component {
         const { title, image, description, link } = this.props.project;
         
         return (
-            // inline-block makes it responsive/place side-to-side
+            // inline-block makes it places the cards side-to-side
             <div style={{ display: 'inline-block', width: 300, margin: 10 }}>
                 <h3>{title}</h3>
                 <img src={image} alt='profile' style={{ width: 200, height: 120 }}/>    
