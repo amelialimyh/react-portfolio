@@ -24411,13 +24411,15 @@ var Title = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "animateTitles", function () {
-      setInterval(function () {
+      // it is okay to directly attach the interval to the component itself and not use state since the return value of the setInterval isn't going to be something we necessarily want to appear in the JSX and render method
+      _this.titleInterval = setInterval(function () {
+        // need a % operator to loop back around to the index once the limit is reached
         var titleIndex = (_this.state.titleIndex + 1) % TITLES.length;
 
         _this.setState({
           titleIndex: titleIndex
         });
-      }, 4000);
+      }, 4000); //4000 = 4 secs interval
     });
 
     return _this;
@@ -24426,8 +24428,12 @@ var Title = /*#__PURE__*/function (_Component) {
   _createClass(Title, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log('Title component has mounted');
       this.animateTitles();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.titleInterval);
     }
   }, {
     key: "render",
@@ -24653,7 +24659,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57910" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50928" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

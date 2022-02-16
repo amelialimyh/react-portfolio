@@ -12,26 +12,22 @@ class Title extends Component {
     state = { titleIndex: 0};
 
     componentDidMount() {
-        console.log('Title component has mounted');
-
         this.animateTitles();
     }
 
     componentWillUnmount() {
-        console.log('Title component will unmount');
-
         clearInterval(this.titleInterval);
     }
 
     animateTitles = () => {
-        setInterval(() => {
+        // it is okay to directly attach the interval to the component itself and not use state since the return value of the setInterval isn't going to be something we necessarily want to appear in the JSX and render method
+        this.titleInterval = setInterval(() => {
             // need a % operator to loop back around to the index once the limit is reached
             const titleIndex = (this.state.titleIndex + 1) % TITLES.length;
 
             this.setState({ titleIndex });
         }, 4000); //4000 = 4 secs interval
     }
-
     render() {
         const title = TITLES[this.state.titleIndex];
 
