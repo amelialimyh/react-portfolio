@@ -19,10 +19,11 @@ class Title extends Component {
 
     animateTitles = () => {
         setInterval(() => {
+            // need a % operator to loop back around to the index once the limit is reached
             const titleIndex = (this.state.titleIndex + 1) % TITLES.length;
 
             this.setState({ titleIndex });
-        }, 4000);
+        }, 4000); //4000 = 4 secs interval
     }
 
     render() {
