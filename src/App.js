@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Projects from './Projects';
 import SocialProfiles from './SocialProfiles';
+import profile from './assets/profile.jpg';
 
 class App extends Component {
     // set up state here because property initializers are a way to atach properties and methods to this object WITHOUT having to use a constructor!!!
@@ -26,6 +27,7 @@ class App extends Component {
     render() {
         return (
             <div>
+                <img src={profile} alt='profile' className='profile' />
                 <h1>Heyyyy there!!!</h1>
                 <p>My name is Amelia and I am a former Journalist who is learning the tools of the trade to become a Software Developer.</p>
                 <p>Feel free to contact me if you have any wild or funny stories at work to share!</p>
