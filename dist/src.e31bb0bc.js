@@ -24122,61 +24122,45 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Project = /*#__PURE__*/function (_Component) {
-  _inherits(Project, _Component);
+// create a stateless function 
+// need to state props IN INPUT COS IT CANNOT BE DETECTED IN THE FUNCTION'S SYNTAX
+var Project = function Project(props) {
+  var _props$project = props.project,
+      title = _props$project.title,
+      image = _props$project.image,
+      description = _props$project.description,
+      link = _props$project.link;
+  return (
+    /*#__PURE__*/
+    // inline-block makes it places the cards side-to-side
+    _react.default.createElement("div", {
+      style: {
+        display: 'inline-block',
+        width: 300,
+        margin: 10
+      }
+    }, /*#__PURE__*/_react.default.createElement("h3", null, title), /*#__PURE__*/_react.default.createElement("img", {
+      src: image,
+      alt: "profile",
+      style: {
+        width: 200,
+        height: 120
+      }
+    }), /*#__PURE__*/_react.default.createElement("p", null, description), /*#__PURE__*/_react.default.createElement("a", {
+      href: link
+    }, link))
+  );
+};
 
-  var _super = _createSuper(Project);
+var Projects = /*#__PURE__*/function (_Component) {
+  _inherits(Projects, _Component);
 
-  function Project() {
-    _classCallCheck(this, Project);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(Project, [{
-    key: "render",
-    value: function render() {
-      console.log('this.props', this.props);
-      var _this$props$project = this.props.project,
-          title = _this$props$project.title,
-          image = _this$props$project.image,
-          description = _this$props$project.description,
-          link = _this$props$project.link;
-      return (
-        /*#__PURE__*/
-        // inline-block makes it places the cards side-to-side
-        _react.default.createElement("div", {
-          style: {
-            display: 'inline-block',
-            width: 300,
-            margin: 10
-          }
-        }, /*#__PURE__*/_react.default.createElement("h3", null, title), /*#__PURE__*/_react.default.createElement("img", {
-          src: image,
-          alt: "profile",
-          style: {
-            width: 200,
-            height: 120
-          }
-        }), /*#__PURE__*/_react.default.createElement("p", null, description), /*#__PURE__*/_react.default.createElement("a", {
-          href: link
-        }, link))
-      );
-    }
-  }]);
-
-  return Project;
-}(_react.Component);
-
-var Projects = /*#__PURE__*/function (_Component2) {
-  _inherits(Projects, _Component2);
-
-  var _super2 = _createSuper(Projects);
+  var _super = _createSuper(Projects);
 
   function Projects() {
     _classCallCheck(this, Projects);
 
-    return _super2.apply(this, arguments);
+    return _super.apply(this, arguments);
   }
 
   _createClass(Projects, [{
@@ -24688,7 +24672,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50667" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50915" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
