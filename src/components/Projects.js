@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PROJECTS from '../data/projects';
 
 // create a stateless function 
@@ -17,23 +17,17 @@ const Project = props => {
     )
 }
 
-class Projects extends Component {
-    render() {
-        return (
-            <div>
-                <h2>Highlighted projects</h2>
-                <div>
-                    {
-                        PROJECTS.map(PROJECT => {
-                            return (
-                                <Project key={PROJECT.id} project={PROJECT} />
-                            );
-                        })
-                    }
-                </div>
-            </div>
-        )
-    }
-}
+const Projects = () => (
+    <div>
+        <h2>Highlighted projects</h2>
+        <div>
+            {
+                PROJECTS.map(PROJECT => (
+                    <Project key={PROJECT.id} project={PROJECT} />
+                ))
+            }
+        </div>
+    </div>
+)
 
 export default Projects;
