@@ -17,4 +17,32 @@ p {
     border-radius: 50%;
 }
 
+.title-fade-out {
+    /* title to be opaque */
+    opacity: 0;
+    /* the type of animation you want */
+    animation-name: fade-out;
+    /*how long would this be*/
+    animation-duration: 2s;
+}
+
+.title-fade-in {
+    /* makes the title completely visible */
+    opacity: 100;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes fade-out {
+    /* makes the title visible */
+    from {opacity: 100}
+    /* makes the title invisible */
+    to {opacity: 0}
+}
+
+@keyframes fade-in {
+    from { opacity: 0 }
+    to { opacity: 100 }
+}
+
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
