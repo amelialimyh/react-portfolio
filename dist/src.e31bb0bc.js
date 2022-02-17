@@ -24396,6 +24396,17 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var Joke = function Joke(_ref) {
+  var _ref$joke = _ref.joke,
+      setup = _ref$joke.setup,
+      punchline = _ref$joke.punchline;
+  return /*#__PURE__*/_react.default.createElement("p", {
+    style: {
+      margin: 20
+    }
+  }, setup, /*#__PURE__*/_react.default.createElement("em", null, punchline));
+};
+
 var Jokes = /*#__PURE__*/function (_Component) {
   _inherits(Jokes, _Component);
 
@@ -24413,7 +24424,20 @@ var Jokes = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      joke: {}
+      joke: {},
+      jokes: []
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "fetchJokes", function () {
+      // this will return a promise
+      fetch('https://official-joke-api.appspot.com/random_ten') // you'll get the response and then return response json
+      .then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        return _this.setState({
+          jokes: json
+        });
+      });
     });
 
     return _this;
@@ -24441,7 +24465,17 @@ var Jokes = /*#__PURE__*/function (_Component) {
       var _this$state$joke = this.state.joke,
           setup = _this$state$joke.setup,
           punchline = _this$state$joke.punchline;
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Hightlighted Joke"), /*#__PURE__*/_react.default.createElement("p", null, setup, /*#__PURE__*/_react.default.createElement("em", null, punchline)));
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Hightlighted Joke"), /*#__PURE__*/_react.default.createElement(Joke, {
+        joke: this.state.joke
+      }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("h3", null, "Want ten new jokes?"), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.fetchJokes
+      }, "Click Me!"), // iterate each joke using map
+      this.state.jokes.map(function (joke) {
+        return /*#__PURE__*/_react.default.createElement(Joke, {
+          key: joke.id,
+          joke: joke
+        });
+      }));
     }
   }]);
 
@@ -24663,7 +24697,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63494" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61851" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
