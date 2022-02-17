@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Switch, Route } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 import App from './components/App';
 import Jokes from './components/Jokes';
 import './index.css';
 
 ReactDOM.render(
     // when user visits a main URL at the application, they're going to end up at the main app component like before
-    <Router>
+    <Router history={createBrowserHistory()}>
         <Switch>
-            <Route path='/' component={App} />
+            <Route exact path='/' component={App} />
             <Route path='/jokes' component={Jokes} />
         </Switch>
     </Router>,
