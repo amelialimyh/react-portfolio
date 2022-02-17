@@ -9,14 +9,21 @@ const TITLES = [
 ];
 
 class Title extends Component {
-    state = { titleIndex: 0};
+    // create a boolean to switches between the fade-in and fade-out classes on the title to apply the animations at the right time as the title is in transition
+    state = { titleIndex: 0, fadeIn: true };
 
     componentDidMount() {
+        // set the timer call to cue the timer to loop - after the title has faded in, after two secs we want it to fade back out
+        //it's all in milliseconds so 2000 = 2secs!
+        // need to set this.timeout directly onto the object withint the component just in case it unmounts when we call clearTimeout later!
+        this.timeout = setTimeout(() => this.setState({ fadeIn: false }), 2000);
+
         this.animateTitles();
     }
 
     componentWillUnmount() {
         clearInterval(this.titleInterval);
+        clearTimeout(this.timeout);
     }
 
     animateTitles = () => {
@@ -25,14 +32,20 @@ class Title extends Component {
             // need a % operator to loop back around to the index once the limit is reached
             const titleIndex = (this.state.titleIndex + 1) % TITLES.length;
 
-            this.setState({ titleIndex });
+            this.setState({ titleIndex, fadeIn: true });
+
+            // once it fades in, this will cause the title to fade back out after 2secs
+            this.timeout = setTimeout(() => this.setState({ fadeIn: false }), 2000);
         }, 4000); //4000 = 4 secs interval
     }
     render() {
-        const title = TITLES[this.state.titleIndex];
+        const { fadeIn, titleIndex } = this.state;
+
+        const title = TITLES[titleIndex];
 
         return (
-            <p>I am {title}</p>
+            // in the true case make the title fade in and in the false case make the title fade out
+            <p className={fadeIn ? 'title-fade-in' : 'title-fade-out'}>I am {title}</p>
         )
     }
 }

@@ -24407,7 +24407,8 @@ var Title = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      titleIndex: 0
+      titleIndex: 0,
+      fadeIn: true
     });
 
     _defineProperty(_assertThisInitialized(_this), "animateTitles", function () {
@@ -24417,8 +24418,16 @@ var Title = /*#__PURE__*/function (_Component) {
         var titleIndex = (_this.state.titleIndex + 1) % TITLES.length;
 
         _this.setState({
-          titleIndex: titleIndex
-        });
+          titleIndex: titleIndex,
+          fadeIn: true
+        }); // once it fades in, this will cause the title to fade back out after 2secs
+
+
+        _this.timeout = setTimeout(function () {
+          return _this.setState({
+            fadeIn: false
+          });
+        }, 2000);
       }, 4000); //4000 = 4 secs interval
     });
 
@@ -24428,18 +24437,38 @@ var Title = /*#__PURE__*/function (_Component) {
   _createClass(Title, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
+      // set the timer call to cue the timer to loop - after the title has faded in, after two secs we want it to fade back out
+      //it's all in milliseconds so 2000 = 2secs!
+      // need to set this.timeout directly onto the object withint the component just in case it unmounts when we call clearTimeout later!
+      this.timeout = setTimeout(function () {
+        return _this2.setState({
+          fadeIn: false
+        });
+      }, 2000);
       this.animateTitles();
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       clearInterval(this.titleInterval);
+      clearTimeout(this.timeout);
     }
   }, {
     key: "render",
     value: function render() {
-      var title = TITLES[this.state.titleIndex];
-      return /*#__PURE__*/_react.default.createElement("p", null, "I am ", title);
+      var _this$state = this.state,
+          fadeIn = _this$state.fadeIn,
+          titleIndex = _this$state.titleIndex;
+      var title = TITLES[titleIndex];
+      return (
+        /*#__PURE__*/
+        // in the true case make the title fade in and in the false case make the title fade out
+        _react.default.createElement("p", {
+          className: fadeIn ? 'title-fade-in' : 'title-fade-out'
+        }, "I am ", title)
+      );
     }
   }]);
 
@@ -24659,7 +24688,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50928" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60986" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
