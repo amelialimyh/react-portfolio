@@ -24437,6 +24437,8 @@ var Jokes = /*#__PURE__*/function (_Component) {
         return _this.setState({
           jokes: json
         });
+      }).catch(function (error) {
+        return alert(error.message);
       });
     });
 
@@ -24457,6 +24459,8 @@ var Jokes = /*#__PURE__*/function (_Component) {
         return _this2.setState({
           joke: json
         });
+      }).catch(function (error) {
+        return alert(error.message);
       });
     }
   }, {
@@ -24668,7 +24672,20 @@ require("./index.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_App.default, null), document.getElementById('root'));
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_App.default, null), document.getElementById('root')); // promises example
+// create an instance of a JS promise to only print these AFTER 'Bears' has been printed
+// new Promise(resolve, reject => {
+//     return reject(new Error('No bears'));
+//     setTimeout(() => {
+//         console.log('Bears');
+//         resolve();
+//     }, 5000);
+// })
+// .then(() => {
+//     console.log('Beets');
+//     console.log('Battlestar Galactica');
+// })
+// .catch(error => console.log('error', error));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/App":"components/App.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -24697,7 +24714,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61851" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51379" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
