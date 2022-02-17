@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Projects from './Projects';
-import SocialProfiles from './SocialProfiles';
+import Projects from '../Projects';
+import SocialProfiles from '../SocialProfiles';
 import profile from './assets/profile.jpg';
 import Title from './Title';
 
