@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Projects from './Projects';
 import SocialProfiles from './SocialProfiles';
-import profile from '../assets/profile.jpg';
 import Title from './Title';
-import Jokes from './Jokes';
+import Header from './Header';
+import profile from '../assets/profile.jpg';
 
 class App extends Component {
     // set up state here because property initializers are a way to atach properties and methods to this object WITHOUT having to use a constructor!!!
@@ -53,11 +53,15 @@ class App extends Component {
                 <Projects />
                 <br />
                 <SocialProfiles />
-                <br />
-                <Jokes />
             </div>
         )
     }
 }
 
-export default App;
+const AppWithHeader = () => {
+    return (
+        <Header Component={App} />
+    )
+}
+
+export default AppWithHeader;
