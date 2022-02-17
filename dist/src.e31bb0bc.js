@@ -29935,13 +29935,15 @@ var _reactRouterDom = require("react-router-dom");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Header = function Header() {
+// higher order component needs a component as its input SO we are going to assume that that component is coming down through props object
+var Header = function Header(props) {
+  var Component = props.Component;
   var style = {
     display: 'inline-block',
     margin: 10,
     marginBottom: 30
   };
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
     style: style
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/",
@@ -29955,7 +29957,7 @@ var Header = function Header() {
     style: {
       textDecoration: 'none'
     }
-  }, "Jokes")));
+  }, "Jokes"))), /*#__PURE__*/_react.default.createElement(Component, null));
 };
 
 var _default = Header;
@@ -30044,7 +30046,7 @@ var App = /*#__PURE__*/function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("img", {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
         src: _profile.default,
         alt: "profile",
         className: "profile"
@@ -30059,7 +30061,13 @@ var App = /*#__PURE__*/function (_Component) {
   return App;
 }(_react.Component);
 
-var _default = App;
+var AppWithHeader = function AppWithHeader() {
+  return /*#__PURE__*/_react.default.createElement(_Header.default, {
+    Component: App
+  });
+};
+
+var _default = AppWithHeader;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","./Projects":"components/Projects.js","./SocialProfiles":"components/SocialProfiles.js","./Title":"components/Title.js","./Header":"components/Header.js","../assets/profile.jpg":"assets/profile.jpg"}],"components/Jokes.js":[function(require,module,exports) {
 "use strict";
@@ -30340,7 +30348,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58766" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58718" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

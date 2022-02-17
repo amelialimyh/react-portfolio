@@ -29,7 +29,6 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Header />
                 <img src={profile} alt='profile' className='profile' />
                 <h1>Heyyyy there!!!</h1>
                 <p>My name is Amelia</p>
@@ -59,4 +58,10 @@ class App extends Component {
     }
 }
 
-export default App;
+const AppWithHeader = () => {
+    return (
+        <Header Component={App} />
+    )
+}
+
+export default AppWithHeader;
