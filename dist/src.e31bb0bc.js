@@ -29921,48 +29921,7 @@ var Title = /*#__PURE__*/function (_Component) {
 
 var _default = Title;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/Header.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactRouterDom = require("react-router-dom");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// higher order component needs a component as its input SO we are going to assume that that component is coming down through props object
-var Header = function Header(props) {
-  var Component = props.Component;
-  var style = {
-    display: 'inline-block',
-    margin: 10,
-    marginBottom: 30
-  };
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
-    style: style
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/",
-    style: {
-      textDecoration: 'none'
-    }
-  }, "Home")), /*#__PURE__*/_react.default.createElement("h3", {
-    style: style
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/jokes",
-    style: {
-      textDecoration: 'none'
-    }
-  }, "Jokes"))), /*#__PURE__*/_react.default.createElement(Component, null));
-};
-
-var _default = Header;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"assets/profile.jpg":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"assets/profile.jpg":[function(require,module,exports) {
 module.exports = "/profile.0a62ebc3.jpg";
 },{}],"components/App.js":[function(require,module,exports) {
 "use strict";
@@ -29979,8 +29938,6 @@ var _Projects = _interopRequireDefault(require("./Projects"));
 var _SocialProfiles = _interopRequireDefault(require("./SocialProfiles"));
 
 var _Title = _interopRequireDefault(require("./Title"));
-
-var _Header = _interopRequireDefault(require("./Header"));
 
 var _profile = _interopRequireDefault(require("../assets/profile.jpg"));
 
@@ -30061,15 +30018,9 @@ var App = /*#__PURE__*/function (_Component) {
   return App;
 }(_react.Component);
 
-var AppWithHeader = function AppWithHeader() {
-  return /*#__PURE__*/_react.default.createElement(_Header.default, {
-    Component: App
-  });
-};
-
-var _default = AppWithHeader;
+var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Projects":"components/Projects.js","./SocialProfiles":"components/SocialProfiles.js","./Title":"components/Title.js","./Header":"components/Header.js","../assets/profile.jpg":"assets/profile.jpg"}],"components/Jokes.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Projects":"components/Projects.js","./SocialProfiles":"components/SocialProfiles.js","./Title":"components/Title.js","../assets/profile.jpg":"assets/profile.jpg"}],"components/Jokes.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30078,10 +30029,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
-
-var _Header = _interopRequireDefault(require("./Header"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -30184,7 +30131,7 @@ var Jokes = /*#__PURE__*/function (_Component) {
       var _this$state$joke = this.state.joke,
           setup = _this$state$joke.setup,
           punchline = _this$state$joke.punchline;
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("h2", null, "Hightlighted Joke"), /*#__PURE__*/_react.default.createElement(Joke, {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Hightlighted Joke"), /*#__PURE__*/_react.default.createElement(Joke, {
         joke: this.state.joke
       }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("h3", null, "Want ten new jokes?"), /*#__PURE__*/_react.default.createElement("button", {
         onClick: this.fetchJokes
@@ -30203,7 +30150,48 @@ var Jokes = /*#__PURE__*/function (_Component) {
 
 var _default = Jokes;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Header":"components/Header.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// higher order component needs a component as its input so we are going to assume that that component is coming down through props object
+var Header = function Header(_ref) {
+  var children = _ref.children;
+  var style = {
+    display: 'inline-block',
+    margin: 10,
+    marginBottom: 30
+  };
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
+    style: style
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/",
+    style: {
+      textDecoration: 'none'
+    }
+  }, "Home")), /*#__PURE__*/_react.default.createElement("h3", {
+    style: style
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/jokes",
+    style: {
+      textDecoration: 'none'
+    }
+  }, "Jokes"))), children);
+};
+
+var _default = Header;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -30290,6 +30278,8 @@ var _App = _interopRequireDefault(require("./components/App"));
 
 var _Jokes = _interopRequireDefault(require("./components/Jokes"));
 
+var _Header = _interopRequireDefault(require("./components/Header"));
+
 require("./index.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -30302,10 +30292,14 @@ _react.default.createElement(_reactRouterDom.Router, {
 }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
   exact: true,
   path: "/",
-  component: _App.default
+  render: function render() {
+    return /*#__PURE__*/_react.default.createElement(_Header.default, null, /*#__PURE__*/_react.default.createElement(_App.default, null));
+  }
 }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
   path: "/jokes",
-  component: _Jokes.default
+  render: function render() {
+    return /*#__PURE__*/_react.default.createElement(_Header.default, null, /*#__PURE__*/_react.default.createElement(_Jokes.default, null));
+  }
 }))), document.getElementById('root')); // promises example
 // create an instance of a JS promise to only print these AFTER 'Bears' has been printed
 // new Promise(resolve, reject => {
@@ -30320,7 +30314,7 @@ _react.default.createElement(_reactRouterDom.Router, {
 //     console.log('Battlestar Galactica');
 // })
 // .catch(error => console.log('error', error));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","history/createBrowserHistory":"../node_modules/history/createBrowserHistory.js","./components/App":"components/App.js","./components/Jokes":"components/Jokes.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","history/createBrowserHistory":"../node_modules/history/createBrowserHistory.js","./components/App":"components/App.js","./components/Jokes":"components/Jokes.js","./components/Header":"components/Header.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -30348,7 +30342,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58718" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58778" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
