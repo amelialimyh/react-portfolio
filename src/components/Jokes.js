@@ -36,7 +36,7 @@ class Jokes extends Component {
                 <h2>Hightlighted Joke</h2>
                 <Joke joke={this.state.joke} />
                 <br />
-                <h3>Want ten new jokes?</h3>
+                <h3>Want more new jokes?</h3>
                 <button onClick={this.fetchJokes}>Click Me!</button>
                 {
                     // iterate each joke using map
