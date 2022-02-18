@@ -12,9 +12,10 @@ ReactDOM.render(
     // when user visits a main URL at the application, they're going to end up at the main app component like before
     <Router history={createBrowserHistory()}>
         <Switch>
-            {/* App now becomes a child of the header component */}
-            <Route exact path='/' render={() => <Header><App /></Header>} />
-            <Route path='/jokes' render={() => <Header><Jokes /></Header>} />
+          {/* App now becomes a child of the header component */}
+          <Route exact path='/' render={() => <Header><App /></Header>} />
+          <Route path='/jokes' render={() => <Header><Jokes /></Header>} />
+          <Route path='/music-master' render={() => <Header><MusicMaster /></Header>} />
         </Switch>
     </Router>,
     document.getElementById('root')

@@ -13,8 +13,8 @@ const Artist = ({ artist }) => {
             <p>{followers.total} followers</p>
             <p>{genres.join(',')}</p>
             {/* checks if images[0] is actually defined and if it is, it would pull it from the image url */}
-            <img 
-                src={image[0] && images[0].url} 
+            <img
+                src={images[0] && images[0].url}
                 alt='artist-profile'
                 style={{
                     width: 200,
@@ -22,7 +22,7 @@ const Artist = ({ artist }) => {
                     borderRadius: 100,
                     // even if the image doesn't fit to the exact specifications, it makes sure that the image isn't skewed or mushed etc.
                     objectFit: 'cover'
-                }} 
+                }}
             />
         </div>
     )

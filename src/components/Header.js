@@ -14,6 +14,7 @@ const Header = ({ children }) => {
             <div>
                 <h3 style={style}><Link to='/' style={{ textDecoration: 'none' }}>Home</Link></h3>
                 <h3 style={style}><Link to='/jokes' style={{ textDecoration: 'none' }}>Jokes</Link></h3>
+                <h3 style={style}><Link to='/music-master' style={{ textDecoration: 'none' }}>Music Master</Link></h3>
             </div>
             {children}
         </div>
