@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Projects from './Projects';
 import SocialProfiles from './SocialProfiles';
 import Title from './Title';
-import Header from './Header';
 import profile from '../assets/profile.jpg';
 
 class App extends Component {
@@ -58,10 +57,4 @@ class App extends Component {
     }
 }
 
-const AppWithHeader = () => {
-    return (
-        <Header Component={App} />
-    )
-}
-
-export default AppWithHeader;
+export default App;

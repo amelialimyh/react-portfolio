@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from './Header';
 
 const Joke = ({ joke: { setup, punchline } }) => (
     <p style={{ margin: 20}}>{setup}<em>{punchline}</em></p>
@@ -34,11 +33,10 @@ class Jokes extends Component {
 
         return (
             <div>
-                <Header />
                 <h2>Hightlighted Joke</h2>
                 <Joke joke={this.state.joke} />
                 <br />
-                <h3>Want ten new jokes?</h3>
+                <h3>Want more new jokes?</h3>
                 <button onClick={this.fetchJokes}>Click Me!</button>
                 {
                     // iterate each joke using map
