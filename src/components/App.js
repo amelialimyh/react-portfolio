@@ -5,7 +5,7 @@ import Title from './Title';
 import profile from '../assets/profile.jpg';
 
 class App extends Component {
-    // set up state here because property initializers are a way to atach properties and methods to this object WITHOUT having to use a constructor!!!
+    // set up state here because property initializers are a way to attach properties and methods to this object WITHOUT having to use a constructor!!!
     state = { displayBio: false };
 
     // We do not need a constructor anymore because we used a property initializer!

@@ -16,6 +16,7 @@
     "start": "npm run build && live-server dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.4"
+    "@babel/core": "^7.17.4",
+    "webpack": "^5.69.1"
   }
 }
